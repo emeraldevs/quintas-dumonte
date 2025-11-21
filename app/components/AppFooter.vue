@@ -16,9 +16,9 @@ const currentYear = new Date().getFullYear()
       <div class="grid grid-cols-1 gap-8 md:grid-cols-3">
         
         <div class="space-y-4">
-          <h3 class="text-xl font-bold text-white tracking-tight">Quintas Dumonte</h3>
+          <img src="/logo-dark-transparente.png" alt="Quintas Dumonte" width="200">
           <p class="text-sm leading-relaxed max-w-xs">
-            Refúgio de 1000 m², onde o silêncio encontra a segurança.
+            Sítio de lazer fechado e familiar
           </p>
         </div>
 
@@ -47,14 +47,17 @@ const currentYear = new Date().getFullYear()
         
         <p>&copy; {{ currentYear }} Quintas Dumonte. Todos os direitos reservados.</p>
         
-        <p class="flex items-center gap-1">
+        <p class="flex items-center gap-2">
           Desenvolvido por 
           <a 
             href="https://landing-page.emeraldevs.workers.dev/" 
             target="_blank" 
-            class="font-semibold text-gray-400 hover:text-[#00FFaa] transition-colors"
+            class="font-semibold text-[#00ffaab0] hover:text-[#00ffaa] transition-colors flex justify-center items-center"
+            
           >
-            EMERALD DEVS
+            <img src="/emerald.png" alt="" width="20px">
+            Emerald Devs
+            
           </a>
         </p>
 

@@ -32,6 +32,12 @@ useSeoMeta({
 // 2. DADOS ESTRUTURADOS (O Segredo dos Profissionais)
 // Isso cria um JSON que diz ao Google: "Isso aqui é um Empreendimento Imobiliário"
 useHead({
+  // --- AQUI ESTÁ A VERIFICAÇÃO DO GOOGLE ---
+  meta: [
+    { name: 'google-site-verification', content: 'Mld7rqhhKlkWPw75sjlUth6kVveFqxTIpb3ZF6tk8zQ' }
+  ],
+  // -----------------------------------------
+
   link: [
     { rel: 'canonical', href: siteUrl },
     { rel: 'icon', type: 'image/png', href: '/favicon.png' }

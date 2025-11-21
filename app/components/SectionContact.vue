@@ -25,7 +25,7 @@ const whatsappLink = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
       </h2>
       
       <p class="mt-6 text-lg leading-8 text-gray-300">
-        Fotos não transmitem o silêncio nem a brisa fresca de Paraju. 
+        Fotos não transmitem o silêncio nem a brisa fresca do Quintas Dumonte. 
         Agende uma visita exclusiva, sem compromisso, e venha conhecer o seu futuro refúgio.
       </p>
 
