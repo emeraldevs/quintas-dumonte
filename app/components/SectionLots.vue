@@ -29,23 +29,7 @@ const lots = [
     image: '/terreno-1000-mata.jpg',
     status: 'Disponível'
   },
-  // Novos terrenos adicionados
-  {
-    id: 4,
-    title: 'Lote D',
-    area: '1.300 m²',
-    description: 'O maior lote do condomínio. Isolado, no final da rua sem saída. Privacidade absoluta para sua família.',
-    image: 'https://images.unsplash.com/photo-1516253593875-bd7ba052fbc5?q=80&w=1000&auto=format&fit=crop',
-    status: 'Disponível'
-  },
-  {
-    id: 5,
-    title: 'Lote E',
-    area: '1.000 m²',
-    description: 'Face norte, recebe sol o dia todo. Topografia excelente que reduz custos de terraplanagem.',
-    image: 'https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=1000&auto=format&fit=crop',
-    status: 'Disponível'
-  }
+  // Adicionar novos terrenos abaixo...
 ]
 
 // Função auxiliar para cor do status
@@ -82,7 +66,8 @@ const getStatusColor = (status: string) => {
           <div class="relative h-64 overflow-hidden bg-gray-200">
             <img 
               :src="lot.image" 
-              :alt="lot.title" 
+              :alt="lot.title"
+              loading="lazy" 
               class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
             />
             <div class="absolute top-4 right-4">

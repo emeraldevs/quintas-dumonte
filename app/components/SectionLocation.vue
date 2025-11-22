@@ -54,7 +54,7 @@ const mapsLink = `https://www.google.com/maps/search/?api=1&query=${encodeURICom
         </div>
 
         <div class="order-1 lg:order-2 h-full relative rounded-2xl overflow-hidden shadow-xl bg-gray-100">
-          <img src="/terrenos.jpg" alt="" class="w-full h-full object-cover">
+          <img src="/quintas-social.jpg" alt="" loading="lazy" class="w-full h-full object-cover">
         </div>
 
 

@@ -30,14 +30,12 @@ const navLinks = [
 </script>
 
 <template>
-  <header class="sticky top-0 z-50 w-full border-b border-gray-100 bg-white/90 backdrop-blur-md transition-all">
+  <header class="sticky top-0 z-50 w-full border-b border-gray-100 bg-white/80 backdrop-blur-md transition-all">
     
     <div class="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
       
       <div class="flex items-center -ml-3">
-        <NuxtLink to="/" href="#intro" class="text-xl font-bold tracking-tight text-[#101010] hover:text-[#D8C67A] transition-colors" @click="closeMenu">
-          <NuxtImg src="/logo-header.png" sizes="110px" />
-        </NuxtLink>
+        <NuxtImg src="/logo-header.png" width="110"/>
       </div>
 
       <nav class="hidden md:flex items-center gap-8">

@@ -6,25 +6,28 @@
 </script>
 
 <template>
-  <section class="relative isolate overflow-hidden bg-[#101010] py-24 sm:py-32 lg:pb-40 min-h-[93vh] flex items-center">
+  <section class="relative isolate overflow-hidden bg-[#101010] min-h-[calc(100vh-65px)] flex items-center">
     
     <img 
-      src="/hero.jpg" 
+      src="/terrenos.jpg" 
       alt="Vista aérea da pedra azul" 
-      class="absolute inset-0 -z-10 h-full w-full object-cover brightness-50"
+      class="absolute top-[-80px] left-0 w-full h-[120%] -z-10 object-cover brightness-50"
+      fetchpriority="high"
     />
 
-    <div class="absolute inset-0 -z-10 `bg-gradient-to-t` from-[#101010]/80 via-[#101010]/40 to-transparent"></div>
 
-    <div class="mx-auto max-w-7xl px-6 lg:px-8 text-center">
+    <div class="absolute inset-0 -z-10 `bg-gradient-to-t` from-[#101010]/80 via-[#101010]/40 to-transparent"></div>
+    
+    <div class="mx-auto max-w-7xl px-6 lg:px-8 text-center flex flex-col justify-center items-center gap-6">
+      
 
       <h1 class="mx-auto max-w-4xl text-4xl font-bold tracking-tight text-white sm:text-6xl font-sans">
-        Sítio de lazer  <br class="hidden sm:block" />
-        <span class="text-[#D8C67A]">fechado e familiar</span>
+        Sítio de lazer fechado e familiar,<br class="hidden sm:block" />
+        <span class="text-[#D8C67A]"> pronto para você</span>
       </h1>
 
       <p class="mx-auto mt-6 max-w-2xl text-lg leading-8 text-gray-300">
-        Para quem busca qualidade de vida, segurança, natureza, tranquilidade e ar puro.
+        Desfrute de dias tranquilos, cercado por natureza, com segurança e ar puro para toda a família.
       </p>
 
       <div class="mt-10 flex items-center justify-center gap-x-6">

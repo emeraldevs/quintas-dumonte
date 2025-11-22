@@ -98,6 +98,7 @@ const scroll = (direction: 'left' | 'right') => {
             <img 
               :src="photo.src" 
               :alt="photo.title" 
+              loading="lazy"
               class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-90 group-hover:opacity-100"
             />
           </div>

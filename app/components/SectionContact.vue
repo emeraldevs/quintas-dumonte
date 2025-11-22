@@ -14,7 +14,7 @@ const whatsappLink = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
   <section id="contact" class="relative isolate overflow-hidden bg-[#101010] py-24 px-6 sm:py-32 lg:px-8">
     
     <div class="absolute top-1/2 left-1/2 -z-10 -translate-x-1/2 -translate-y-1/2 blur-3xl opacity-20" aria-hidden="true">
-      <div class="aspect-[1/1] w-[40rem] flex-none rounded-full bg-[#D8C67A]"></div>
+      <div class="`aspect-[1/1]` `w-[40rem]` flex-none rounded-full bg-[#D8C67A]"></div>
     </div>
 
     <div class="mx-auto max-w-2xl text-center">
