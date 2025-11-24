@@ -2,59 +2,87 @@
 /**
  * Componente: Header (Cabeçalho)
  * Função: Navegação principal e CTA.
- * Comportamento: Fixo no topo com fundo translúcido.
+ * Comportamento: Fixo no topo, ganha borda ao rolar.
  */
 
-// Estado para controlar o menu mobile (aberto/fechado)
+// Estado para controlar o menu mobile
 const isMenuOpen = ref(false)
+// Estado para controlar se a página foi rolada
+const isScrolled = ref(false)
 
-// Função para fechar o menu ao clicar em um link (UX básica)
 const closeMenu = () => {
   isMenuOpen.value = false
 }
 
-/**
- * ----------------------------------------------------------------
- * EXERCÍCIO DE FIXAÇÃO (Edite aqui):
- * Esta lista define os links do menu. 
- * Os 'hash' (#) devem corresponder aos IDs das seções que criaremos.
- * ----------------------------------------------------------------
- */
+// Monitorar o Scroll para adicionar a borda
+const handleScroll = () => {
+  isScrolled.value = window.scrollY > 10 // Se desceu mais de 10px, ativa a borda
+}
+
+onMounted(() => {
+  window.addEventListener('scroll', handleScroll)
+})
+
+onUnmounted(() => {
+  window.removeEventListener('scroll', handleScroll)
+})
+
+const whatsappNumber = '5527999720808' 
+const whatsappMessage = 'Olá! Gostaria de agendar uma visita ao Quintas Dumonte.'
+const whatsappLink = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`
+
 const navLinks = [
   { label: 'O Refúgio', hash: '#intro' },
-  { label: 'Diferenciais', hash: '#features' },
-  { label: 'Terrenos', hash: '#lots' }, // Sessão nova solicitada
-  { label: 'Galeria', hash: '#gallery' },
+  { label: 'Nossa hitória', hash: '#features' },
   { label: 'Localização', hash: '#location' },
+  { label: 'Galeria', hash: '#gallery' },
+  { label: 'Terrenos', hash: '#lots' },
 ]
 </script>
 
 <template>
-  <header class="sticky top-0 z-50 w-full border-b border-gray-100 bg-white/80 backdrop-blur-md transition-all">
+  <!-- 
+    Header Dinâmico:
+    - :class controla a borda baseado em isScrolled.
+    - border-transparent: Sem borda no topo.
+    - border-b border-gray-200: Com borda ao rolar.
+  -->
+  <header 
+    :class="[
+      'sticky top-0 z-50 w-full bg-white/90 backdrop-blur-md transition-all duration-300',
+      isScrolled ? 'border-b border-gray-200 shadow-sm' : 'border-b border-transparent'
+    ]"
+  >
     
     <div class="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
       
+      <!-- LOGO -->
       <div class="flex items-center -ml-3">
-        <NuxtImg src="/logo-header.png" width="110"/>
+        <a href="#">
+          <NuxtImg src="/quintas2.png" width="150" alt="Quintas Dumonte" />
+        </a>
       </div>
 
+      <!-- NAVEGAÇÃO DESKTOP -->
       <nav class="hidden md:flex items-center gap-8">
         <a 
           v-for="link in navLinks" 
           :key="link.hash" 
           :href="link.hash"
-          class="text-sm font-medium text-gray-700 hover:text-[#D8C67A] transition-colors"
+          class="text-sm font-medium text-gray-700 hover:text-[#CBBD93] transition-colors"
         >
           {{ link.label }}
         </a>
       </nav>
 
+      <!-- CTA DESKTOP -->
       <div class="hidden md:flex">
-        <a href="#contact" class="rounded-full border border-[#101010] px-5 py-2 text-sm font-semibold text-[#101010] hover:bg-[#101010] hover:text-white transition-colors duration-300">
+        <a :href="whatsappLink" target="_blank" class="rounded-full border border-[#101010] px-5 py-2 text-sm font-semibold text-[#101010] hover:bg-[#101010] hover:text-white transition-colors duration-300">
           Agendar visita
         </a>
       </div>
 
+      <!-- BOTÃO MENU MOBILE -->
       <div class="flex md:hidden">
         <button 
           @click="isMenuOpen = !isMenuOpen"
@@ -69,29 +97,39 @@ const navLinks = [
       </div>
     </div>
 
-    <div v-if="isMenuOpen" class="md:hidden border-t border-gray-100 bg-white absolute w-full shadow-lg">
-      <div class="space-y-1 px-4 py-6">
-        <a 
-          v-for="link in navLinks" 
-          :key="link.hash" 
-          :href="link.hash"
-          class="block border-l-4 border-transparent py-3 pl-3 text-base font-medium text-gray-600 hover:border-[#D8C67A] hover:bg-gray-50 hover:text-[#101010]"
-          @click="closeMenu"
-        >
-          {{ link.label }}
-        </a>
-        
-        <div class="mt-6 pt-4 border-t border-gray-100">
+    <!-- MENU MOBILE -->
+    <Transition
+      enter-active-class="transition duration-200 ease-out"
+      enter-from-class="transform -translate-y-5 opacity-0"
+      enter-to-class="transform translate-y-0 opacity-100"
+      leave-active-class="transition duration-150 ease-in"
+      leave-from-class="transform translate-y-0 opacity-100"
+      leave-to-class="transform -translate-y-5 opacity-0"
+    >
+      <div v-if="isMenuOpen" class="md:hidden border-t border-gray-100 bg-white absolute w-full shadow-lg">
+        <div class="space-y-1 px-4 py-6">
           <a 
-            href="#contact" 
-            class="flex w-full items-center justify-center rounded-md bg-[#101010] px-4 py-3 text-base font-bold text-white hover:bg-[#D8C67A] transition-colors"
+            v-for="link in navLinks" 
+            :key="link.hash" 
+            :href="link.hash"
+            class="block border-l-4 border-transparent py-3 pl-3 text-base font-medium text-gray-600 hover:border-[#D8C67A] hover:bg-gray-50 hover:text-[#101010]"
             @click="closeMenu"
           >
-            Agendar visita agora
+            {{ link.label }}
           </a>
+          
+          <div class="mt-6 pt-4 border-t border-gray-100">
+            <a 
+              href="#contact" 
+              class="flex w-full items-center justify-center rounded-md bg-[#CBBD93] px-4 py-3 text-base font-bold text-gray-800 hover:bg-[#D8C67A] transition-colors"
+              @click="closeMenu"
+            >
+              Agendar visita
+            </a>
+          </div>
         </div>
       </div>
-    </div>
+    </Transition>
 
   </header>
 </template>

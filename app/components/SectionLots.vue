@@ -7,23 +7,23 @@
 const lots = [
   {
     id: 1,
-    title: 'Lote A',
+    title: 'Chácara A',
     area: '1.678 m²',
     description: 'Com platô, área gramada, pomar formado, água disponível e ligação de energia pela EDP.',
     image: '/terreno-1678.jpg',
-    status: 'Disponível'
+    status: 'Pronto para construir'
   },
   {
     id: 2,
-    title: 'Lote B',
+    title: 'Chácara B',
     area: '1.443 m²',
     description: 'O terreno possui platô pronto, água instalada, luz disponível e área gramada.',
     image: '/terreno-1443.jpg',
-    status: 'Disponível'
+    status: 'Pronto para construir'
   },
   {
     id: 3,
-    title: 'Lote C',
+    title: 'Chácara C',
     area: '1.000 m²',
     description: 'Situado ao lado de uma bela área de mata, garantindo privacidade e contato direto com a natureza.',
     image: '/terreno-1000-mata.jpg',
@@ -41,7 +41,7 @@ const getStatusColor = (status: string) => {
 </script>
 
 <template>
-  <section class="py-24 bg-gray-50" id="lots">
+  <section class="py-16 bg-white" id="lots">
     <div class="mx-auto max-w-7xl px-6 lg:px-8">
       
       <div class="mx-auto max-w-2xl text-center mb-16">
@@ -52,7 +52,7 @@ const getStatusColor = (status: string) => {
           Invista na sua qualidade de vida
         </p>
         <p class="mt-4 text-lg text-gray-600">
-          Escolha o lugar perfeito para sua família viver momentos especiais:
+          Escolha o lugar perfeito com segurança para você e sua família viverem momentos especiais:
         </p>
       </div>
 

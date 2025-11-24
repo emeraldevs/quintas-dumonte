@@ -1,4 +1,12 @@
 <script setup lang="ts">
+
+const navLinks = [
+  { label: 'O Refúgio', hash: '#intro' },
+  { label: 'Nossa hitória', hash: '#features' },
+  { label: 'Localização', hash: '#location' },
+  { label: 'Galeria', hash: '#gallery' },
+  { label: 'Terrenos', hash: '#lots' },
+]
 /**
  * Componente: Footer (Rodapé)
  * Função: Informações finais, links rápidos e reforço de marca.
@@ -10,30 +18,33 @@ const currentYear = new Date().getFullYear()
 </script>
 
 <template>
-  <footer class="bg-[#101010] text-gray-300 py-12 border-t border-gray-800">
+  <footer class="text-gray-600 py-12 border-gray-800">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       
       <div class="grid grid-cols-1 gap-8 md:grid-cols-3">
         
         <div class="space-y-4">
-          <img src="/logo-dark-transparente.png" alt="Quintas Dumonte" width="200">
+          <a href="#">
+            <img src="/quintas2.png" alt="Quintas Dumonte" width="200">
+          </a>
           <p class="text-sm leading-relaxed max-w-xs">
             Sítio de lazer fechado e familiar
           </p>
         </div>
 
         <div class="space-y-4">
-          <h4 class="text-sm font-semibold text-white uppercase tracking-wider">Explorar</h4>
+          <h4 class="text-sm font-semibold text-black uppercase tracking-wider">Explorar</h4>
           <ul class="space-y-2 text-sm">
             <li><a href="#intro" class="hover:text-[#D8C67A] transition-colors">O Refúgio</a></li>
-            <li><a href="#features" class="hover:text-[#D8C67A] transition-colors">Diferenciais</a></li>
-            <li><a href="#lots" class="hover:text-[#D8C67A] transition-colors">Terrenos à Venda</a></li>
-            <li><a href="#location" class="hover:text-[#D8C67A] transition-colors">Localização</a></li>
+            <li><a href="#features" class="hover:text-[#D8C67A] transition-colors">Nossa hitória</a></li>
+            <li><a href="#lots" class="hover:text-[#D8C67A] transition-colors">Localização</a></li>
+            <li><a href="#location" class="hover:text-[#D8C67A] transition-colors">Galeria</a></li>
+            <li><a href="#location" class="hover:text-[#D8C67A] transition-colors">Terrenos à venda</a></li>
           </ul>
         </div>
 
         <div class="space-y-4">
-          <h4 class="text-sm font-semibold text-white uppercase tracking-wider">Contato</h4>
+          <h4 class="text-sm font-semibold text-black uppercase tracking-wider">Contato</h4>
           <div class="space-y-2 text-sm">
             <p class="flex items-center gap-2">
               <UIcon name="i-heroicons-chat-bubble-left-right" class="w-5 h-5 text-[#D8C67A]" />
@@ -52,7 +63,7 @@ const currentYear = new Date().getFullYear()
           <a 
             href="https://landing-page.emeraldevs.workers.dev/" 
             target="_blank" 
-            class="font-semibold text-[#00ffaab0] hover:text-[#00ffaa] transition-colors flex justify-center items-center"
+            class="font-semibold text-[#02a871] hover:text-[#00ffaa] transition-colors flex justify-center items-center"
             
           >
             <img src="/emerald.png" alt="" width="20px">

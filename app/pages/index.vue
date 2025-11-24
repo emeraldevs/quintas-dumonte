@@ -1,46 +1,43 @@
 <script setup lang="ts">
-// Importante: Ajuste a URL final do seu site aqui quando tiver o domínio
+/**
+ * Página: Home (Index)
+ * Função: Orquestrar a exibição de todas as seções da Landing Page.
+ */
+
+// URL Final do Site (Com www, conforme seu snippet)
 const siteUrl = 'https://www.quintasdumonte.com.br' 
-const siteName = 'Quintas Dumonte'
-const siteDescription = 'Terrenos de 1000m² em Domingos Martins (Paraju). Um refúgio seguro, com infraestrutura completa, lagoa e muito verde. Agende sua visita.'
 
-// 1. CONFIGURAÇÃO DE METADADOS (O que o Google lê)
+// 1. SEO e Metadados
 useSeoMeta({
-  // Título que aparece na aba do navegador e no Google (Max 60 caracteres)
-  title: 'Quintas Dumonte | Terrenos e Sítios em Domingos Martins - ES',
-  
-  // A descrição cinza que aparece embaixo do link no Google (Max 160 caracteres)
-  description: 'Encontre seu refúgio em Domingos Martins. Terrenos cercados por segurança e silêncio absoluto. Viva o clima das montanhas. Agende sua visita.',
-  
-  // Configurações para Redes Sociais (WhatsApp, Instagram, Facebook)
-  ogTitle: 'Quintas Dumonte - Seu Refúgio nas Montanhas',
-
-  ogDescription: 'Encontre seu refúgio em Domingos Martins. Terrenos cercados por segurança e silêncio absoluto. Viva o clima das montanhas. Agende sua visita.',
-
-  ogImage: `${siteUrl}/quintas-social.jpg`, // Crie uma imagem 1200x630px e coloque na pasta public
+  title: 'Sítios e Terrenos em Domingos Martins | Quintas Dumonte – Montanhas Capixabas',
+  description: 'Sítios e terrenos em Domingos Martins. Condomínio fechado para lazer, descanso e contato com a natureza nas Montanhas Capixabas. Agende sua visita.',
+  ogTitle: 'Sítios e Terrenos em Domingos Martins | Quintas Dumonte',
+  ogDescription: 'Sítios e terrenos em Domingos Martins. Condomínio fechado para lazer, descanso e contato com a natureza nas Montanhas Capixabas. Agende sua visita.',
+  ogImage: `${siteUrl}/quintas-social.jpg`,
   ogUrl: siteUrl,
   ogType: 'website',
   ogLocale: 'pt_BR',
-  
-  // Configurações para Twitter/X
   twitterCard: 'summary_large_image',
-  twitterTitle: 'Quintas Dumonte - Refúgio em Domingos Martins',
-  twitterDescription: siteDescription,
+  twitterTitle: 'Sítios e Terrenos em Domingos Martins | Quintas Dumonte',
+  twitterDescription: 'Sítios e terrenos em Domingos Martins. Condomínio fechado para lazer.',
   twitterImage: `${siteUrl}/quintas-social.jpg`,
 })
 
-// 2. DADOS ESTRUTURADOS (O Segredo dos Profissionais)
-// Isso cria um JSON que diz ao Google: "Isso aqui é um Empreendimento Imobiliário"
+// 2. Dados Estruturados e Otimizações
 useHead({
-  // --- AQUI ESTÁ A VERIFICAÇÃO DO GOOGLE ---
   meta: [
     { name: 'google-site-verification', content: 'Mld7rqhhKlkWPw75sjlUth6kVveFqxTIpb3ZF6tk8zQ' }
   ],
-  // -----------------------------------------
-
   link: [
     { rel: 'canonical', href: siteUrl },
-    { rel: 'icon', type: 'image/png', href: '/favicon.png' }
+    { rel: 'icon', type: 'image/png', href: '/favicon.png' },
+    // Preload da imagem Hero para carregamento instantâneo (Melhora LCP)
+    { 
+      rel: 'preload', 
+      as: 'image', 
+      href: '/foto-hero.webp', 
+      fetchpriority: 'high'
+    }
   ],
   htmlAttrs: {
     lang: 'pt-BR'
@@ -48,25 +45,30 @@ useHead({
   script: [
     {
       type: 'application/ld+json',
-      // AQUI ESTAVA O ERRO: Trocamos 'children' por 'innerHTML'
       innerHTML: JSON.stringify({
         "@context": "https://schema.org",
-        "@type": "RealEstateListing",
-        "name": "Quintas Dumonte",
-        "description": "Venda de terrenos de 1000m² em condomínio fechado na região de montanhas.",
+        "@type": "LandPlot",
+        "name": "Sítios e Terrenos Quintas Dumonte",
+        "description": "Terrenos e sítios de lazer em Domingos Martins, região das Montanhas Capixabas.",
         "address": {
           "@type": "PostalAddress",
-          "streetAddress": "Rua Tijuco Preto",
-          "addressLocality": "Paraju, Domingos Martins",
+          "addressLocality": "Domingos Martins",
           "addressRegion": "ES",
           "addressCountry": "BR"
         },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": -20.363,
+          "longitude": -40.659
+        },
         "url": siteUrl,
-        "telephone": "+5527999999999",
-        "priceRange": "$$$",
-        "image": [
-          `${siteUrl}/foto-hero.jpg`
-        ]
+        "image": [`${siteUrl}/foto-hero.webp`],
+        "offers": {
+          "@type": "Offer",
+          "price": "Sob consulta",
+          "priceCurrency": "BRL",
+          "availability": "https://schema.org/InStock"
+        }
       })
     }
   ]
@@ -76,17 +78,29 @@ useHead({
 <template>
   <div class="flex flex-col w-full">
     
+    <!-- 
+      Seção Hero:
+      Não precisa de margem pois é o topo absoluto da página.
+    -->
     <SectionHero id="intro" />
 
-    <SectionFeatures id="features" />
+    <!-- 
+      AQUI ESTÁ O SEGREDO DO SCROLL:
+      Adicionei a classe 'scroll-mt-24' em todas as seções abaixo.
+      
+      O que ela faz: Cria uma margem invisível de ~100px no topo da seção
+      APENAS quando o navegador rola até ela via âncora (#id).
+      Isso impede que o Header fixo fique por cima do título.
+    -->
+    <SectionFeatures id="features" class="scroll-mt-16" />
 
-    <SectionLots id="lots" />
+    <SectionLocation id="location" class="scroll-mt-16" />
+    
+    <SectionGallery id="gallery" class="scroll-mt-16" />
 
-    <SectionGallery id="gallery" />
+    <SectionLots id="lots" class="scroll-mt-16" />
 
-    <SectionLocation id="location" />
-
-    <SectionContact id="contact" />
+    <SectionContact id="contact" class="scroll-mt-16" />
 
   </div>
 </template>

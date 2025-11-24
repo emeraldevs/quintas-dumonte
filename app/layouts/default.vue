@@ -22,7 +22,7 @@ useHead({
     
     <AppHeader />
 
-    <main class="`flex-grow` w-full">
+    <main class="flex-grow w-full">
       <slot />
     </main>
 
