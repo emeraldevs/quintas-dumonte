@@ -43,7 +43,7 @@ const whatsappLink = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
         <a 
           :href="whatsappLink" 
           target="_blank"
-          class="rounded-md bg-[#CBBD93] px-5 py-3 text-base font-semibold text-[#101010] shadow-sm hover:bg-[#E3D38B] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#D8C67A] transition-all duration-300 transform hover:scale-105"
+          class="rounded-md bg-[#CBBD93] px-2 py-2 text-base font-semibold text-[#101010] shadow-sm hover:bg-[#E3D38B] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#D8C67A] transition-all duration-300 transform hover:scale-105"
         >
           Entre em contato
         </a>
