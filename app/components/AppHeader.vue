@@ -28,7 +28,7 @@ onUnmounted(() => {
 })
 
 const whatsappNumber = '5527999720808' 
-const whatsappMessage = 'Olá! Gostaria de agendar uma visita ao Quintas Dumonte.'
+const whatsappMessage = 'Olá! Gostaria de saber mais informações.'
 const whatsappLink = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`
 
 const navLinks = [
@@ -57,9 +57,9 @@ const navLinks = [
     <div class="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
       
       <!-- LOGO -->
-      <div class="flex items-center -ml-3">
+      <div class="flex items-center">
         <a href="#">
-          <NuxtImg src="/quintas2.png" width="150" alt="Quintas Dumonte" />
+          <NuxtImg src="/quintas2.png" width="140" alt="Sítio de Lazer Quintas Dumonte" />
         </a>
       </div>
 
@@ -77,13 +77,13 @@ const navLinks = [
 
       <!-- CTA DESKTOP -->
       <div class="hidden md:flex">
-        <a :href="whatsappLink" target="_blank" class="rounded-md bg-[#CBBD93] px-5 py-3 text-base font-semibold text-[#101010] shadow-sm hover:bg-[#E3D38B] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#D8C67A] transition-all duration-300 transform hover:scale-105">
+        <a :href="whatsappLink" target="_blank" class="rounded-md bg-[#CBBD93] px-2 py-2 text-md font-semibold text-[#2c2c2c] shadow-sm hover:bg-[#E3D38B] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#D8C67A] transition-all duration-300 transform hover:scale-105">
           Agendar visita
         </a>
       </div>
 
       <!-- BOTÃO MENU MOBILE -->
-      <div class="flex md:hidden">
+      <div class="flex md:hidden mt-2">
         <button 
           @click="isMenuOpen = !isMenuOpen"
           aria-label="Abrir menu principal"
@@ -91,7 +91,7 @@ const navLinks = [
         >
           <UIcon 
             :name="isMenuOpen ? 'i-heroicons-x-mark' : 'i-heroicons-bars-3'" 
-            class="h-7 w-7" 
+            class="h-8 w-8" 
           />
         </button>
       </div>

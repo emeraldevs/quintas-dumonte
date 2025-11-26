@@ -6,7 +6,7 @@
 
 // Substitua pelo seu número real (formato internacional: 55 + DDD + Numero)
 const whatsappNumber = '5527999720808' 
-const whatsappMessage = 'Olá! Gostaria de agendar uma visita ao Quintas Dumonte.'
+const whatsappMessage = 'Olá! Gostaria de saber mais informações.'
 const whatsappLink = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`
 </script>
 

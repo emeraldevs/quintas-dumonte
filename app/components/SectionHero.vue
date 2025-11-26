@@ -1,7 +1,7 @@
 <script setup lang="ts">
 
 const whatsappNumber = '5527999720808' 
-const whatsappMessage = 'Olá! Gostaria de agendar uma visita ao Quintas Dumonte.'
+const whatsappMessage = 'Olá! Gostaria de saber mais informações.'
 const whatsappLink = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`
 /**
  * Componente: SectionHero - Versão Cores Diretas (Hardcoded)
@@ -10,7 +10,7 @@ const whatsappLink = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
 </script>
 
 <template>
-  <section class=" relative isolate rounded-t-[35px] overflow-hidden bg-[#101010] min-h-[calc(100vh-65px)] flex items-center">
+  <section class="relative isolate overflow-hidden bg-[#101010] min-h-[calc(100vh-65px)] flex items-center">
     
     <img 
       src="/hero-sitio-terreno.jpg" 

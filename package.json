@@ -8,13 +8,13 @@
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
-    
     "deploy": "nuxt generate && gh-pages -d .output/public -t"
   },
   "dependencies": {
     "@nuxt/image": "2.0.0",
     "@nuxt/scripts": "0.13.0",
     "@nuxt/ui": "4.2.0",
+    "@nuxtjs/google-gtag": "^1.0.4",
     "@unhead/vue": "^2.0.19",
     "nuxt": "^4.2.1",
     "typescript": "^5.9.3",
