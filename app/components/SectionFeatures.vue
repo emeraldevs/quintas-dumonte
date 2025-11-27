@@ -11,7 +11,7 @@
     <div class="mx-auto max-w-7xl px-6 lg:px-8">
       
       <div class="mx-auto max-w-2xl lg:text-center">
-        <h2 class="text-base font-semibold leading-7 text-[#D8C67A] uppercase tracking-wide">
+        <h2 class="text-base font-semibold leading-7 text-[#81785d] uppercase tracking-wide">
           Venha para o Quintas Dumonte
         </h2>
         <p class="mt-2 text-3xl font-bold tracking-tight text-[#101010] sm:text-4xl">

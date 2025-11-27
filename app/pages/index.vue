@@ -92,13 +92,14 @@ useHead({
       APENAS quando o navegador rola até ela via âncora (#id).
       Isso impede que o Header fixo fique por cima do título.
     -->
-    <SectionFeatures id="features" class="scroll-mt-16" />
 
     <SectionLocation id="location" class="scroll-mt-16" />
     
     <SectionGallery id="gallery" class="scroll-mt-16" />
 
     <SectionLots id="lots" class="scroll-mt-16" />
+
+    <SectionFeatures id="features" class="scroll-mt-16" />
 
     <SectionContact id="contact" class="scroll-mt-16" />
 

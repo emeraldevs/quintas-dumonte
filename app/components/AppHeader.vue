@@ -32,11 +32,11 @@ const whatsappMessage = 'Olá! Gostaria de saber mais informações.'
 const whatsappLink = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`
 
 const navLinks = [
-  { label: 'O Refúgio', hash: '#intro' },
-  { label: 'Nossa hitória', hash: '#features' },
+  { label: 'O Refúgio', hash: '#' },
   { label: 'Localização', hash: '#location' },
   { label: 'Galeria', hash: '#gallery' },
   { label: 'Terrenos', hash: '#lots' },
+  { label: 'Nossa hitória', hash: '#features' },
 ]
 </script>
 
@@ -54,12 +54,12 @@ const navLinks = [
     ]"
   >
     
-    <div class="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
+    <div class="mx-auto flex h-23 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
       
       <!-- LOGO -->
       <div class="flex items-center">
         <a href="#">
-          <NuxtImg src="/quintas2.png" width="140" alt="Sítio de Lazer Quintas Dumonte" />
+          <NuxtImg src="/quintas2.png" width="160" alt="Sítio de Lazer Quintas Dumonte" />
         </a>
       </div>
 
@@ -87,7 +87,7 @@ const navLinks = [
         <button 
           @click="isMenuOpen = !isMenuOpen"
           aria-label="Abrir menu principal"
-          class="text-[#101010] focus:outline-none"
+          class="text-[#81785d] focus:outline-none"
         >
           <UIcon 
             :name="isMenuOpen ? 'i-heroicons-x-mark' : 'i-heroicons-bars-3'" 

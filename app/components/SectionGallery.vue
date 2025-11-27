@@ -1,8 +1,8 @@
 <script setup lang="ts">
 /**
  * Componente: SectionGallery (Estrutura de Lazer)
- * Estilo: Carrossel horizontal (Slider) com fundo claro e cards imersivos.
- * Funcionalidade: Scroll suave, dicas visuais e indicadores de paginação (bolinhas).
+ * Estilo: Carrossel horizontal (Slider) com fundo claro e cards ULTRA GIGANTES.
+ * Funcionalidade: Scroll suave, dicas visuais e indicadores de paginação.
  */
 
 // Referência para o container do scroll
@@ -10,6 +10,7 @@ const scrollContainer = ref<HTMLElement | null>(null)
 // Estado para saber qual slide está ativo (0 = primeiro)
 const activeIndex = ref(0)
 
+// Lista completa atualizada
 const photos = [
   {
     title: 'Lagoas',
@@ -36,13 +37,12 @@ const photos = [
     description: 'Gramado natural para jogar futebol.',
     src: '/campo-futebol.jpg'
   },
-
-
   {
     title: 'Relaxar',
     description: 'Relaxar no embalo de uma rede num clima agradável.',
     src: '/lazer-relaxar.jpg'
-  },{
+  },
+  {
     title: 'Lareira Externa',
     description: 'Queimar um marshmallow e tomar um vinho/suco na lareira.',
     src: '/lazer-lareira-externa.jpg'
@@ -67,7 +67,10 @@ const photos = [
 // Função para rolar com as setas (Desktop)
 const scroll = (direction: 'left' | 'right') => {
   if (!scrollContainer.value) return
-  const scrollAmount = 620 
+  
+  // AJUSTE: Largura do card (1000px) + Gap (24px) = 1024
+  const scrollAmount = 1024 
+  
   scrollContainer.value.scrollBy({
     left: direction === 'left' ? -scrollAmount : scrollAmount,
     behavior: 'smooth'
@@ -121,7 +124,7 @@ const onScroll = () => {
       
       <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-2">
         <div class="max-w-2xl">
-          <h2 class="text-base font-semibold leading-7 text-[#D8C67A] uppercase tracking-wide">
+          <h2 class="text-base font-semibold leading-7 text-[#81785d] uppercase tracking-wide">
             Lazer e Conforto
           </h2>
           <p class="mt-2 text-3xl font-bold tracking-tight text-gray-800 sm:text-4xl">
@@ -131,12 +134,11 @@ const onScroll = () => {
             Além do seu terreno, o Quintas Dumonte oferece áreas comuns pensadas para o bem-estar coletivo e familiar.
           </p>
           
-          <!-- Cabeçalho da Galeria com Dica Mobile -->
           <div class="flex items-center justify-between pt-8">
-            <h3 class="text-black font-bold text-xl">GALERIA</h3>
+            <h3 class="text-black font-bold text-base">GALERIA</h3>
             
             <!-- DICA VISUAL MOBILE -->
-            <div class="md:hidden flex items-center gap-2 text-sm text-[#D8C67A] font-medium animate-pulse">
+            <div class="md:hidden flex items-center gap-2 text-sm text-[#81785d] font-medium animate-pulse">
               <span>Deslize</span>
               <UIcon name="i-heroicons-arrow-right" class="w-4 h-4" />
             </div>
@@ -171,12 +173,12 @@ const onScroll = () => {
         <div 
           v-for="(photo, index) in photos" 
           :key="index"
-          class="snap-center snap-always shrink-0 w-[75vw] md:w-[600px] group relative rounded-2xl overflow-hidden"
+          class="snap-center snap-always shrink-0 w-[90vw] md:w-[1000px] group relative overflow-hidden shadow-xl"
         >
           <!-- 
-             AJUSTE "UM POR VEZ":
-             Adicionei a classe 'snap-always' acima.
-             Isso força o navegador a parar em CADA item, impedindo que um "arrastão" pule fotos.
+             UPGRADE DE TAMANHO ULTRA:
+             - Mobile: w-[90vw] (Quase tela cheia)
+             - Desktop: w-[1000px] (Massivo)
           -->
           <div class="aspect-[4/3] md:aspect-[16/9] w-full overflow-hidden">
             <img 
@@ -187,13 +189,13 @@ const onScroll = () => {
             />
           </div>
           
-          <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent"></div>
+          <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div>
 
-          <div class="absolute bottom-0 left-0 p-6 md:p-8">
-            <h3 class="text-xl md:text-2xl font-bold text-white mb-2">
+          <div class="absolute bottom-0 left-0 p-6 md:p-10">
+            <h3 class="text-xl md:text-4xl font-bold text-white mb-2 drop-shadow-md">
               {{ photo.title }}
             </h3>
-            <p class="text-sm md:text-base text-gray-300 leading-relaxed opacity-100 md:opacity-0 md:translate-y-4 transition-all duration-300 md:group-hover:opacity-100 md:group-hover:translate-y-0 max-w-md">
+            <p class="text-sm md:text-xl text-gray-200 leading-relaxed opacity-100 md:opacity-0 md:translate-y-4 transition-all duration-300 md:group-hover:opacity-100 md:group-hover:translate-y-0 max-w-2xl">
               {{ photo.description }}
             </p>
           </div>
@@ -204,7 +206,7 @@ const onScroll = () => {
       </div>
 
       <!-- INDICADORES (BOLINHAS) -->
-      <div class="flex justify-center items-center gap-3 mt-2">
+      <div class="flex justify-center items-center gap-2 mt-6 flex-wrap px-4">
         <button 
           v-for="(_, index) in photos" 
           :key="index"
@@ -212,8 +214,8 @@ const onScroll = () => {
           :class="[
             'rounded-full transition-all duration-300',
             index === activeIndex 
-              ? 'bg-[#D8C67A] w-8 h-2' 
-              : 'bg-gray-300 w-2 h-2 hover:bg-gray-400'
+              ? 'bg-[#81785d] w-10 h-2.5' // Um pouco maior para acompanhar a escala
+              : 'bg-gray-300 w-2.5 h-2.5 hover:bg-gray-400'
           ]"
           :aria-label="`Ir para foto ${index + 1}`"
         />

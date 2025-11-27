@@ -1,11 +1,11 @@
 <script setup lang="ts">
 
 const navLinks = [
-  { label: 'O Refúgio', hash: '#intro' },
-  { label: 'Nossa hitória', hash: '#features' },
+  { label: 'O Refúgio', hash: '#' },
   { label: 'Localização', hash: '#location' },
   { label: 'Galeria', hash: '#gallery' },
   { label: 'Terrenos', hash: '#lots' },
+  { label: 'Nossa hitória', hash: '#features' },
 ]
 /**
  * Componente: Footer (Rodapé)
@@ -35,11 +35,11 @@ const currentYear = new Date().getFullYear()
         <div class="space-y-4">
           <h4 class="text-sm font-semibold text-black uppercase tracking-wider">Explorar</h4>
           <ul class="space-y-2 text-sm">
-            <li><a href="#intro" class="hover:text-[#D8C67A] transition-colors">O Refúgio</a></li>
+            <li><a href="#" class="hover:text-[#D8C67A] transition-colors">O Refúgio</a></li>
+            <li><a href="#location" class="hover:text-[#D8C67A] transition-colors">Localização</a></li>
+            <li><a href="#gallery" class="hover:text-[#D8C67A] transition-colors">Galeria</a></li>
+            <li><a href="#lots" class="hover:text-[#D8C67A] transition-colors">Terrenos à venda</a></li>
             <li><a href="#features" class="hover:text-[#D8C67A] transition-colors">Nossa hitória</a></li>
-            <li><a href="#lots" class="hover:text-[#D8C67A] transition-colors">Localização</a></li>
-            <li><a href="#location" class="hover:text-[#D8C67A] transition-colors">Galeria</a></li>
-            <li><a href="#location" class="hover:text-[#D8C67A] transition-colors">Terrenos à venda</a></li>
           </ul>
         </div>
 
@@ -47,7 +47,7 @@ const currentYear = new Date().getFullYear()
           <h4 class="text-sm font-semibold text-black uppercase tracking-wider">Contato</h4>
           <div class="space-y-2 text-sm">
             <p class="flex items-center gap-2">
-              <UIcon name="i-heroicons-chat-bubble-left-right" class="w-5 h-5 text-[#D8C67A]" />
+              <UIcon name="i-heroicons-chat-bubble-left-right" class="w-5 h-5 text-[#81785d]" />
               <span>(27) 99972-0808</span>
             </p>
           </div>
