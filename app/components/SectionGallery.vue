@@ -211,6 +211,7 @@ const onScroll = () => {
           v-for="(_, index) in photos" 
           :key="index"
           @click="scrollToIndex(index)"
+          class="cursor-pointer"
           :class="[
             'rounded-full transition-all duration-300',
             index === activeIndex 

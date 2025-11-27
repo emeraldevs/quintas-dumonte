@@ -2,7 +2,7 @@
 
 const navLinks = [
   { label: 'O Refúgio', hash: '#' },
-  { label: 'Localização', hash: '#location' },
+  { label: 'A Região', hash: '#location' },
   { label: 'Galeria', hash: '#gallery' },
   { label: 'Terrenos', hash: '#lots' },
   { label: 'Nossa hitória', hash: '#features' },
@@ -37,7 +37,9 @@ const currentYear = new Date().getFullYear()
           <nav>
             <ul class="">
               <li v-for="link in navLinks" :key="link.hash">
-                <a :href="link.hash">
+                <a :href="link.hash"
+                class="text-md font-medium text-gray-700 hover:text-[#CBBD93] transition-colors"
+                >
                   {{ link.label }}
                 </a>
               </li>

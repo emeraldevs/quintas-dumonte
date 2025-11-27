@@ -39,14 +39,6 @@ const lots = [
     image: '/terreno-1000-mata.jpg',
     status: 'Disponível'
   },
-   {
-    id: 3,
-    title: 'Chácara C',
-    area: '1.000 m²',
-    description: 'Situado ao lado de uma bela área de mata, garantindo privacidade e contato direto com a natureza.',
-    image: '/terreno-1000-mata.jpg',
-    status: 'Disponível'
-  },
   // Adicione mais lotes aqui...
 ]
 
@@ -160,7 +152,7 @@ const getStatusColor = (status: string) => {
     <div class="mx-auto max-w-7xl px-6 lg:px-8">
       
       <!-- CABEÇALHO -->
-      <div class="mx-auto max-w-2xl text-center">
+      <div class="max-w-2xl">
         <h2 class="text-base font-semibold leading-7 text-[#81785d] uppercase tracking-wide">
           Disponibilidade
         </h2>
@@ -186,7 +178,7 @@ const getStatusColor = (status: string) => {
         <div 
           ref="scrollContainer"
           @scroll.passive="onScroll"
-          class="flex gap-6 overflow-x-auto pb-2 pt-4 snap-x snap-mandatory scrollbar-hide px-1"
+          class="flex gap-6 overflow-x-auto pb-2 snap-x snap-mandatory scrollbar-hide px-1"
         >
           <div 
             v-for="lot in lots" 
@@ -246,7 +238,7 @@ const getStatusColor = (status: string) => {
         <button 
           v-if="showControls"
           @click="scroll('right')"
-          class="cursor-pointer flex md:flex absolute -right-1 top-1/2 -translate-y-1/2 z-10 bg-transparent backdrop-blur-sm border border-gray-200 p-3 rounded-full shadow-lg text-gray-600 md:hover:bg-[#CBBD93] md:hover:text-white md:hover:border-[#CBBD93] transition-all transform md-hover:scale-110 -mr-4 lg:-mr-6"
+          class="cursor-pointer flex md:flex absolute -right-1 top-1/2 -translate-y-1/2 z-10 bg-transparent backdrop-blur-sm border border-gray-200 p-3 rounded-full shadow-lg text-gray-600 md:hover:bg-[#D8C67A] md:hover:text-white md:hover:border-[#D8C67A] transition-all transform hover:scale-110 -mr-4 lg:-ml-6"
           aria-label="Próximo"
         >
           <UIcon name="i-heroicons-chevron-right" class="w-6 h-6" />
@@ -261,6 +253,7 @@ const getStatusColor = (status: string) => {
           v-for="pageIndex in Math.ceil(lots.length / itemsPerPage)" 
           :key="pageIndex"
           @click="scrollToPage(pageIndex - 1)"
+          class="cursor-pointer"
           :class="[
             'rounded-full transition-all duration-300',
             // Verifica se a página atual corresponde ao item ativo
