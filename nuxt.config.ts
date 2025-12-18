@@ -7,7 +7,11 @@ export default defineNuxtConfig({
 
   app: {
     head: {
-      // 2. GOOGLE ANALYTICS (Adicionado aqui)
+      // ADICIONE ESTA PARTE PARA O FAVICON:
+      link: [
+        { rel: 'icon', type: 'image/png', href: '/favicon.png' }
+      ],
+      // MANTENHA O SEU GOOGLE ANALYTICS:
       script: [
         {
           async: true,
@@ -28,7 +32,4 @@ export default defineNuxtConfig({
   nitro: {
     preset: 'static'
   },
-  
-  
-
 })

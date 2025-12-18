@@ -178,14 +178,14 @@ const getStatusColor = (status: string) => {
         <div 
           ref="scrollContainer"
           @scroll.passive="onScroll"
-          class="flex gap-6 overflow-x-auto pb-2 snap-x snap-mandatory scrollbar-hide px-1"
+          class="flex gap-6 overflow-x-auto pb-2 snap-x snap-mandatory scrollbar-hide px-1 scroll-smooth"
         >
           <div 
             v-for="lot in lots" 
             :key="lot.id" 
             class="
               group flex flex-col rounded-2xl bg-white border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 h-130 shrink-0
-              snap-center md:snap-start
+              snap-center md:snap-start snap-always
               w-full 
               md:w-[calc(50%-12px)] 
               lg:w-[calc(33.333%-16px)]
@@ -270,11 +270,33 @@ const getStatusColor = (status: string) => {
 </template>
 
 <style scoped>
-.scrollbar-hide::-webkit-scrollbar {
-    display: none;
-}
-.scrollbar-hide {
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-}
+  .scrollbar-hide::-webkit-scrollbar {
+      display: none;
+  }
+  .scrollbar-hide {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+      scroll-snap-type: x mandatory;
+      scroll-behavior: smooth;
+  }
+
+  /* Força snap mais rígido em cada item */
+  .scrollbar-hide > * {
+      scroll-snap-align: center start;
+      scroll-snap-stop: always;
+  }
+
+  /* Mobile: snap no centro */
+  @media (max-width: 767px) {
+    .scrollbar-hide > * {
+      scroll-snap-align: center;
+    }
+  }
+
+  /* Desktop: snap no início */
+  @media (min-width: 768px) {
+    .scrollbar-hide > * {
+      scroll-snap-align: start;
+    }
+  }
 </style>

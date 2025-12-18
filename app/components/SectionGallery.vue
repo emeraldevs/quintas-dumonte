@@ -23,14 +23,19 @@ const photos = [
     src: '/area-festa.jpg'
   },
   {
-    title: 'Lareira Interna',
-    description: 'O charme do fogo suspenso para as noites frias e conversas longas.',
-    src: '/lareira-festa.jpg'
-  },
-  {
     title: 'Suítes',
     description: 'Suítes confortáveis para passar os seus finais de semana.',
     src: '/pousada1.jpg'
+  },
+  {
+    title: 'Colha e Pague de Morangos',
+    description: 'Morangos colhidos na hora.',
+    src: '/colha-e-pague-sitio-domingos-martins.jpg'
+  },
+  {
+    title: 'Lareira Interna',
+    description: 'O charme do fogo suspenso para as noites frias e conversas longas.',
+    src: '/lareira-festa.jpg'
   },
   {
     title: 'Campo de Futebol',
