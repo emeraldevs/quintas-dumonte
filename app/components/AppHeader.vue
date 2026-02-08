@@ -31,14 +31,37 @@ const whatsappNumber = '5527999720808'
 const whatsappMessage = 'Olá! Gostaria de saber mais informações.'
 const whatsappLink = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`
 
-const navLinks = [
-  { label: 'O Refúgio', hash: '#intro' },
-  { label: 'Diferenciais', hash: '#features' }, // Mudei para features pois estava em branco
-  { label: 'Terrenos', hash: '#lots' },
-  { label: 'Experiência', hash: '/experiencia' },
-  { label: 'Galeria', hash: '#gallery' },
-  { label: 'A Região', hash: '#location' }, // Ajustei label para manter consistência
-]
+const route = useRoute()
+
+const navLinks = computed(() => {
+  // Se estiver na Home
+  if (route.path === '/') {
+    return [
+      { label: 'O Refúgio', hash: '#intro' },
+      { label: 'Diferenciais', hash: '#features' },
+      { label: 'Terrenos', hash: '#lots' },
+      { label: 'Experiência', hash: '/experiencia' },
+      { label: 'Galeria', hash: '#gallery' },
+      { label: 'A Região', hash: '#location' },
+    ]
+  }
+
+  // Se estiver na página de Experiência
+  if (route.path === '/experiencia') {
+    return [
+      { label: 'Voltar para Venda', hash: '/' }, // Volta para Home
+      { label: 'O Sítio', hash: '#intro' },      // Hero da Experiência
+      { label: 'Acomodações', hash: '#suites' }, // Nova seção se houver ID
+      { label: 'Galeria', hash: '#gallery' },
+      { label: 'Localização', hash: '#location' },
+    ]
+  }
+
+  // Default (outras páginas, se houver)
+  return [
+    { label: 'Home', hash: '/' }
+  ]
+})
 </script>
 
 <template>
@@ -65,15 +88,15 @@ const navLinks = [
       </div>
 
       <!-- NAVEGAÇÃO DESKTOP -->
-      <nav class="hidden md:flex items-center gap-8">
-        <a 
+        <nav class="hidden md:flex items-center gap-8">
+        <NuxtLink 
           v-for="link in navLinks" 
           :key="link.hash" 
-          :href="link.hash"
-          class="text-md font-medium text-gray-700 hover:text-[#CBBD93] transition-colors"
+          :to="link.hash"
+          class="text-md font-medium text-gray-700 hover:text-[#CBBD93] transition-colors cursor-pointer"
         >
           {{ link.label }}
-        </a>
+        </NuxtLink>
       </nav>
 
       <!-- CTA DESKTOP -->
@@ -109,15 +132,15 @@ const navLinks = [
     >
       <div v-if="isMenuOpen" class="md:hidden border-t border-gray-100 bg-white absolute w-full shadow-lg">
         <div class="space-y-1 px-4 py-6">
-          <a 
+          <NuxtLink 
             v-for="link in navLinks" 
             :key="link.hash" 
-            :href="link.hash"
+            :to="link.hash"
             class="block border-l-4 border-transparent py-3 pl-3 text-base font-medium text-gray-600 hover:border-[#D8C67A] hover:bg-gray-50 hover:text-[#101010]"
             @click="closeMenu"
           >
             {{ link.label }}
-          </a>
+          </NuxtLink>
           
           <div class="mt-6 pt-4 border-t border-gray-100">
             <a 
