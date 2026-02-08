@@ -32,11 +32,12 @@ const whatsappMessage = 'Olá! Gostaria de saber mais informações.'
 const whatsappLink = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`
 
 const navLinks = [
-  { label: 'O Refúgio', hash: '#' },
+  { label: 'O Refúgio', hash: '#intro' },
+  { label: 'Diferenciais', hash: '#features' }, // Mudei para features pois estava em branco
   { label: 'Terrenos', hash: '#lots' },
-  { label: 'A Região', hash: '#location' },
+  { label: 'Experiência', hash: '/experiencia' },
   { label: 'Galeria', hash: '#gallery' },
-  { label: 'Nossa hitória', hash: '#features' },
+  { label: 'A Região', hash: '#location' }, // Ajustei label para manter consistência
 ]
 </script>
 

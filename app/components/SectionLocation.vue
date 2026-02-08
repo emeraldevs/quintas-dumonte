@@ -73,8 +73,6 @@ const mapsLink = `https://www.google.com/maps/search/?api=1&query=${encodeURICom
           </div>
         </div>
         
-
-
       </div>
     </div>
   </section>

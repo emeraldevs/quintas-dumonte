@@ -8,7 +8,7 @@
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
-    "deploy": "nuxt generate && gh-pages -d .output/public -t"
+    "deploy": "nuxt generate && gh-pages -d .output/public -t true"
   },
   "dependencies": {
     "@nuxt/image": "2.0.0",

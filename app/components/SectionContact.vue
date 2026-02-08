@@ -4,10 +4,23 @@
  * Foco: Conversão direta para WhatsApp.
  */
 
+
+const props = withDefaults(defineProps<{
+  title?: string
+  subtitle?: string
+  whatsappMessage?: string
+  ctaText?: string
+}>(), {
+  title: 'A melhor forma de entender <br /> é nos<span class="text-[#CBBD93]"> visitando.</span>',
+  subtitle: 'Visite, conheça e se encante.<br/> Agende sua visita sem compromisso, venha tomar um café conosco, sinta-se em casa.',
+  whatsappMessage: 'Olá! Gostaria de saber mais informações.',
+  ctaText: 'Agendar Visita pelo WhatsApp'
+})
+
 // Substitua pelo seu número real (formato internacional: 55 + DDD + Numero)
 const whatsappNumber = '5527999720808' 
-const whatsappMessage = 'Olá! Gostaria de saber mais informações.'
-const whatsappLink = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`
+const whatsappLink = computed(() => `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(props.whatsappMessage)}`)
+
 </script>
 
 <template>
@@ -19,14 +32,9 @@ const whatsappLink = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
 
     <div class="mx-auto max-w-2xl text-center">
       
-      <h2 class="text-3xl font-bold tracking-tight text-black sm:text-4xl">
-        A melhor forma de entender <br />
-        é nos<span class="text-[#CBBD93]"> visitando.</span>
-      </h2>
+      <h2 class="text-3xl font-bold tracking-tight text-black sm:text-4xl" v-html="props.title"></h2>
       
-      <p class="mt-6 text-lg leading-8 text-gray-600">
-        Visite, conheça e se encante.<br/> Agende sua visita sem compromisso, venha tomar um café conosco, sinta-se em casa.
-      </p>
+      <p class="mt-6 text-lg leading-8 text-gray-600" v-html="props.subtitle"></p>
 
       <div class="mt-10 flex flex-col items-center gap-6">
         
@@ -36,7 +44,7 @@ const whatsappLink = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
           class="group relative inline-flex items-center justify-center gap-3 rounded-full bg-[#CBBD93] px-8 py-4 text-lg font-bold text-[#101010] focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#D8C67A] transition-all duration-300 hover:scale-105 hover:bg-[#E3D38B] shadow-[0_0_20px_rgba(216,198,122,0.3)] hover:shadow-[0_0_30px_rgba(216,198,122,0.5)]"
         >
           <UIcon name="i-lucide-message-circle" class="h-6 w-6" />
-          Agendar Visita pelo WhatsApp
+          {{ props.ctaText }}
         </a>
 
       </div>

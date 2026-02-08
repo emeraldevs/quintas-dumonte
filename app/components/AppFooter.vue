@@ -3,15 +3,11 @@
 const navLinks = [
   { label: 'O Refúgio', hash: '#' },
   { label: 'A Região', hash: '#location' },
+  { label: 'Experiência', hash: '/experiencia' },
   { label: 'Galeria', hash: '#gallery' },
   { label: 'Terrenos', hash: '#lots' },
-  { label: 'Nossa hitória', hash: '#features' },
+  { label: 'Nossa história', hash: '#features' },
 ]
-/**
- * Componente: Footer (Rodapé)
- * Função: Informações finais, links rápidos e reforço de marca.
- * Estilo: Fundo escuro para contraste e elegância ("Dark Mode" local).
- */
 
 // Pega o ano atual automaticamente (ex: 2025)
 const currentYear = new Date().getFullYear()

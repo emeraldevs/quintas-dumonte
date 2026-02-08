@@ -6,20 +6,21 @@
 
 // URL Final do Site (Com www, conforme seu snippet)
 const siteUrl = 'https://www.quintasdumonte.com.br' 
+const siteName = 'Quintas Dumonte'
 
 // 1. SEO e Metadados
 useSeoMeta({
-  title: 'Terrenos e chácaras em sítio de lazer em Domingos Martins | Quintas Dumonte – Montanhas Capixabas',
-  description: 'Terrenos e chácaras em sítio de lazer em Domingos Martins – Montanhas Capixabas, descanso e contato com a natureza nas Montanhas Capixabas. Agende sua visita.',
-  ogTitle: 'Terrenos e chácaras em sítio de lazer em Domingos Martins | Quintas Dumonte – Montanhas Capixabas',
-  ogDescription: 'Terrenos e chácaras em sítio de lazer em Domingos Martins – Montanhas Capixabas, descanso e contato com a natureza nas Montanhas Capixabas. Agende sua visita.',
+  title: 'Venda de Terrenos e Sítios em Domingos Martins | Quintas Dumonte',
+  description: 'Terrenos à venda em condomínio fechado em Domingos Martins - ES. Sítios de lazer com infraestrutura completa: segurança, água, luz e natureza. Agende sua visita.',
+  ogTitle: 'Venda de Terrenos e Sítios em Domingos Martins | Quintas Dumonte',
+  ogDescription: 'Terrenos à venda em condomínio fechado em Domingos Martins - ES. Sítios de lazer com infraestrutura completa. Agende sua visita.',
   ogImage: `${siteUrl}/quintas-social.jpg`,
   ogUrl: siteUrl,
   ogType: 'website',
   ogLocale: 'pt_BR',
   twitterCard: 'summary_large_image',
-  twitterTitle: 'Terrenos e chácaras em sítio de lazer em Domingos Martins | Quintas Dumonte – Montanhas Capixabas',
-  twitterDescription: 'Terrenos e chácaras em sítio de lazer em Domingos Martins | Quintas Dumonte – Montanhas Capixabas.',
+  twitterTitle: 'Venda de Terrenos e Sítios em Domingos Martins | Quintas Dumonte',
+  twitterDescription: 'Terrenos à venda em condomínio fechado em Domingos Martins - ES.',
   twitterImage: `${siteUrl}/quintas-social.jpg`,
 })
 
@@ -35,7 +36,7 @@ useHead({
     { 
       rel: 'preload', 
       as: 'image', 
-      href: '/foto-hero.webp', 
+      href: '/hero-sitio-terreno.jpg', 
       fetchpriority: 'high'
     }
   ],
@@ -47,22 +48,22 @@ useHead({
       type: 'application/ld+json',
       innerHTML: JSON.stringify({
         "@context": "https://schema.org",
-        "@type": "LandPlot",
-        "name": "Terrenos e chácaras em sítio de lazer Quintas Dumonte",
-        "description": "Terrenos e chácaras em sítio de lazer em Domingos Martins, região das Montanhas Capixabas.",
+        "@type": "RealEstateListing",
+        "name": "Quintas Dumonte",
+        "description": "Venda de terrenos de 1000m² em condomínio fechado na região de montanhas.",
         "address": {
           "@type": "PostalAddress",
-          "addressLocality": "Domingos Martins",
+          "streetAddress": "Rua Tijuco Preto",
+          "addressLocality": "Paraju, Domingos Martins",
           "addressRegion": "ES",
           "addressCountry": "BR"
         },
-        "geo": {
-          "@type": "GeoCoordinates",
-          "latitude": -20.363,
-          "longitude": -40.659
-        },
         "url": siteUrl,
-        "image": [`${siteUrl}/foto-hero.webp`],
+        "telephone": "+5527999999999",
+        "priceRange": "$$$",
+        "image": [
+          `${siteUrl}/foto-hero.webp`
+        ],
         "offers": {
           "@type": "Offer",
           "price": "Sob consulta",
@@ -93,17 +94,17 @@ useHead({
       Isso impede que o Header fixo fique por cima do título.
     -->
 
-    <SectionLots id="lots" class="scroll-mt-16" />
+    <SectionFeatures id="features" class="scroll-mt-16" />
 
-    <SectionLocation id="location" class="scroll-mt-16" />
+    <SectionLots id="lots" class="scroll-mt-16" />
 
     <SectionGallery id="gallery" class="scroll-mt-16" />
 
-    <SectionFeatures id="features" class="scroll-mt-16" />
+    <SectionCallExperience />
+
+    <SectionLocation id="location" class="scroll-mt-16" />
 
     <SectionContact id="contact" class="scroll-mt-16" />
-
-    
 
   </div>
 </template>

@@ -1,2 +1,4 @@
 User-Agent: *
 Disallow:
+
+Sitemap: https://www.quintasdumonte.com.br/sitemap.xml
