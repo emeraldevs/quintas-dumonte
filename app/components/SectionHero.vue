@@ -32,7 +32,7 @@
 
       <h1 class="mx-auto max-w-5xl text-5xl font-bold tracking-tight text-white sm:text-7xl font-serif drop-shadow-lg leading-tight animate-fade-in-up">
         Seu Sítio em <br class="hidden sm:block" />
-        <span class="text-[#CBBD93] italic">Condomínio Fechado</span>
+        <span class="text-[#CBBD93] italic">Ambiente Familiar</span> <!-- Termo atualizado -->
       </h1>
       
       <p class="mx-auto mt-8 max-w-2xl text-lg sm:text-xl leading-relaxed text-gray-200 drop-shadow-md font-light animate-fade-in-up delay-100">
@@ -46,7 +46,7 @@
           href="#features" 
           class="rounded-full bg-[#CBBD93] px-8 py-4 text-base font-bold text-[#101010] shadow-[0_0_20px_rgba(203,189,147,0.3)] hover:bg-[#E3D38B] hover:shadow-[0_0_30px_rgba(203,189,147,0.5)] hover:-translate-y-1 transition-all duration-300"
         >
-          Conhecer o Condomínio
+          Conhecer o Quintas
         </a>
         <a href="#lots" class="text-base font-semibold text-white hover:text-[#CBBD93] transition-colors flex items-center gap-2 group">
           Ver Lotes Disponíveis 

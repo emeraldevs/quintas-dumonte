@@ -42,7 +42,7 @@ const features = [
           Venha para o Quintas Dumonte
         </h2>
         <p class="mt-2 text-3xl font-bold tracking-tight text-[#101010] sm:text-4xl font-serif">
-          Mais que um condomínio, <br/> uma história de amizade.
+          Mais que um sítio de lazer, <br/> uma história de amizade.
         </p>
         <p class="mt-6 text-lg leading-8 text-gray-600">
           Não somos um grande empreendimento imobiliário impessoal. Somos uma família que decidiu compartilhar esse paraíso com outras famílias.
